@@ -21,10 +21,6 @@ class Book
      * @var string
      */
     protected $isbn;
-    /**
-     * @var Author[]
-     */
-    protected $authors;
 
     /**
      * Book constructor.
@@ -110,34 +106,6 @@ class Book
     public function setIsbn(string $isbn): Book
     {
         $this->isbn = $isbn;
-        return $this;
-    }
-
-    /**
-     * @return Author[]
-     */
-    public function getAuthors(): array
-    {
-        return $this->authors;
-    }
-
-    /**
-     * @param Author[] $authors
-     * @return Book
-     */
-    public function setAuthors(array $authors): Book
-    {
-        $this->authors = $authors;
-        return $this;
-    }
-
-    /**
-     * @param Author $author
-     * @return Book
-     */
-    public function addAuthor(Author $author): book
-    {
-        $this->authors[] = $author;
         return $this;
     }
 }

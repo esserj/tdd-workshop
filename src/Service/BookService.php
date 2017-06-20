@@ -3,7 +3,10 @@
 namespace App\Service;
 
 
-class BookService
+use App\Books\BookStoreInterface;
+use App\Entity\Book;
+
+class BookService implements BookStoreInterface
 {
     /**
      * @var \PDO
@@ -34,5 +37,15 @@ class BookService
             return [];
         }
         return $data;
+    }
+
+    public function addBook(Book $book): bool
+    {
+        $statement = $this->pdo->prepare("INSERT INTO book (id, title, summary, isbn) VALUES (:id, :title, :summary, :isbn)");
+        $statement->bindValue(':id', $book->getId());
+        $statement->bindValue(':title', $book->getTitle());
+        $statement->bindValue(':summary', $book->getSummary());
+        $statement->bindValue(':isbn', $book->getIsbn());
+        return $statement->execute();
     }
 }

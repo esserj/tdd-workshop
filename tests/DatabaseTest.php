@@ -13,7 +13,7 @@ class DatabaseTest extends TestCase
     protected $pdo = null;
 
     /**
-     * @return PHPUnit_Extensions_Database_DB_IDatabaseConnection
+     * @return \PHPUnit\DbUnit\Database\DefaultConnection
      */
     public function getConnection()
     {
@@ -26,7 +26,7 @@ class DatabaseTest extends TestCase
     }
 
     /**
-     * @return PHPUnit_Extensions_Database_DataSet_IDataSet
+     * @return \PHPUnit\DbUnit\DataSet\FlatXmlDataSet
      */
     public function getDataSet()
     {
